@@ -1,4 +1,4 @@
-require 'eve-web'
+require './eve-web'
 
 run Sinatra::Application
 
