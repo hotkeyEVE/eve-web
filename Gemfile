@@ -6,5 +6,6 @@ gem 'sinatra'
 
 group :development do
   gem 'thin'
+  gem 'heroku'
 end
 
