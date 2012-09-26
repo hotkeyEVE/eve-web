@@ -1,6 +1,7 @@
 require 'sinatra'
+require 'slim'
 
 get "/" do
-  "Hotkey EVE"
+  slim :index
 end
 
