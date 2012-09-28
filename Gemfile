@@ -7,6 +7,9 @@ gem 'thin'
 gem 'sinatra'
 gem 'slim'
 
+gem 'pg'
+gem 'sequel'
+
 group :development do
   gem 'heroku'
 end
