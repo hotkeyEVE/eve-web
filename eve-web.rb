@@ -18,3 +18,10 @@ get "/" do
   slim :index
 end
 
+get "/request" do
+  serial  = SerialNumber.generate
+  account = Account.create(serial: serial.number)
+
+  account.to_json
+end
+
