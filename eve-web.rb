@@ -1,5 +1,4 @@
-%w[sinatra sequel slim].each { |lib|  require lib }
-
+%w[sinatra sequel slim json].each { |lib|  require lib }
 
 
 # CONFIG
@@ -23,5 +22,18 @@ get "/request" do
   account = Account.create(serial: serial.number)
 
   account.to_json
+end
+
+post "/verify" do
+  begin
+    Account.verify JSON.parse(request.body.read.to_s)
+    200
+  rescue JSON::ParserError
+    [400, "Malformed request / JSON can't be parsed"]
+  rescue Account::Unknown, Account::EmptyMac => e
+    [406, e.message]
+  rescue Account::LicenceLimit => e
+    [403, e.message]
+  end
 end
 
