@@ -1,15 +1,35 @@
 class Account < Sequel::Model(:accounts)
   LICENCE_LIMIT = (ENV["LICENCE_LIMIT"] || 3).to_i
 
+  EXAMPLE_EMAIL  = "example@example.com"
+  EXAMPLE_SERIAL = "11111111-1111-1111-1111-111111111111"
+
   class Unknown < StandardError; end
   class EmptyMac < StandardError; end
   class LicenceLimit < StandardError; end
 
-  def to_json
-    JSON.generate({
-      email:  email,
-      serial: serial
-    })
+  def to_kagi(status = "GOOD", message = "")
+    <<-TEXT
+      Content-type: text/text
+
+      kagiRemotePostStatus=#{status}, message="#{message}"
+
+      userName=#{email}, regNumber=#{serial}
+    TEXT
+  end
+
+  def self.generate(params)
+    email = params["ACG:PurchaserEmail"]
+    email = nil if email.empty?
+
+    account = (first(email: email) || new(email: email, serial: SerialNumber.generate.number))
+
+    account.save unless account.exists?
+    account
+  end
+
+  def self.example
+    new(email: EXAMPLE_EMAIL, serial: EXAMPLE_SERIAL)
   end
 
   def self.verify(params)

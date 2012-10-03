@@ -17,11 +17,18 @@ get "/" do
   slim :index
 end
 
-get "/request" do
-  serial  = SerialNumber.generate
-  account = Account.create(serial: serial.number)
+post "/lcg" do
+  begin
+    if params.fetch("ACG:Flags", "").include?("Test=1")
+      account = Account.example
+    else
+      account = Account.generate(params)
+    end
 
-  account.to_json
+    account.to_kagi
+  rescue Sequel::InvalidValue
+    Account.new.to_kagi("BAD", "Incomplete request. Did you submit an email?")
+  end
 end
 
 post "/verify" do
