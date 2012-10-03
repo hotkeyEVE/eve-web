@@ -7,10 +7,10 @@ DB.drop_table :accounts
 DB.create_table :accounts do
   primary_key :id
 
-  String :email, size: 100
-  String :serial, size: 50
+  String :email, size: 100, null: false
+  String :serial, size: 50, null: false
   String :mac_addresses, size: 150
 
-  index :serial, unique: true
+  index [:email, :serial], unique: true
 end
 
