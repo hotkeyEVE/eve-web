@@ -1,4 +1,5 @@
 class Account < Sequel::Model(:accounts)
+  LICENCE_LIMIT = (ENV["LICENCE_LIMIT"] || 3).to_i
 
   class Unknown < StandardError; end
   class EmptyMac < StandardError; end
@@ -21,7 +22,7 @@ class Account < Sequel::Model(:accounts)
     registered_macs = (account.mac_addresses || "").split(",")
     return if registered_macs.include?(mac)
 
-    raise LicenceLimit.new("Too many licences") if registered_macs.size > 2
+    raise LicenceLimit.new("Too many licences") if registered_macs.size >= LICENCE_LIMIT
 
     registered_macs << mac
     account.mac_addresses = registered_macs.join(",")
