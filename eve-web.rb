@@ -7,7 +7,7 @@
 Sequel.connect ENV["DATABASE_URL"]
 
 # load models after connection was established
-%w[serial_number account].each { |model| require "./models/#{model}" }
+%w[serial_number kagi_response account].each { |model| require "./models/#{model}" }
 
 
 # APP
@@ -25,9 +25,9 @@ post "/lcg" do
       account = Account.generate(params)
     end
 
-    account.to_kagi
+    KagiResponse.success(account)
   rescue Sequel::InvalidValue
-    Account.new.to_kagi("BAD", "Incomplete request. Did you submit an email?")
+    KagiResponse.failed("Incomplete request. Did you submit an email?")
   end
 end
 

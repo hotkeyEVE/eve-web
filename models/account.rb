@@ -8,45 +8,37 @@ class Account < Sequel::Model(:accounts)
   class EmptyMac < StandardError; end
   class LicenceLimit < StandardError; end
 
-  def to_kagi(status = "GOOD", message = "")
-    <<-TEXT
-      Content-type: text/text
+  class << self
+    def generate(params)
+      email = params["ACG:PurchaserEmail"]
+      email = nil if email.empty?
 
-      kagiRemotePostStatus=#{status}, message="#{message}"
+      account = (first(email: email) || new(email: email, serial: SerialNumber.generate.number))
 
-      userName=#{email}, regNumber=#{serial}
-    TEXT
-  end
+      account.save unless account.exists?
+      account
+    end
 
-  def self.generate(params)
-    email = params["ACG:PurchaserEmail"]
-    email = nil if email.empty?
+    def example
+      new(email: EXAMPLE_EMAIL, serial: EXAMPLE_SERIAL)
+    end
 
-    account = (first(email: email) || new(email: email, serial: SerialNumber.generate.number))
+    def verify(params)
+      account = first(email: params["email"], serial: params["serial"])
+      raise Unknown.new("Email and / or Serial doesn't exist") unless account
 
-    account.save unless account.exists?
-    account
-  end
+      mac = params.fetch("mac", "")
+      raise EmptyMac.new("No Mac address specified") if mac.empty?
 
-  def self.example
-    new(email: EXAMPLE_EMAIL, serial: EXAMPLE_SERIAL)
-  end
+      registered_macs = (account.mac_addresses || "").split(",")
+      return if registered_macs.include?(mac)
 
-  def self.verify(params)
-    account = first(email: params["email"], serial: params["serial"])
-    raise Unknown.new("Email and / or Serial doesn't exist") unless account
+      raise LicenceLimit.new("Too many licences") if registered_macs.size >= LICENCE_LIMIT
 
-    mac = params.fetch("mac", "")
-    raise EmptyMac.new("No Mac address specified") if mac.empty?
-
-    registered_macs = (account.mac_addresses || "").split(",")
-    return if registered_macs.include?(mac)
-
-    raise LicenceLimit.new("Too many licences") if registered_macs.size >= LICENCE_LIMIT
-
-    registered_macs << mac
-    account.mac_addresses = registered_macs.join(",")
-    account.save
+      registered_macs << mac
+      account.mac_addresses = registered_macs.join(",")
+      account.save
+    end
   end
 end
 
