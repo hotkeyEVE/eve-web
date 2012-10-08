@@ -10,13 +10,21 @@ Sequel.connect ENV["DATABASE_URL"]
 %w[serial_number kagi_response account shortcut].each { |model| require "./models/#{model}" }
 
 
-# APP
+# WEB
 ##############################################
 
 get "/" do
   slim :index
 end
 
+get "/shortcuts" do
+  @shortcuts = Shortcut.where(:AppName => Shortcut::STANDARD_APPS).order(:AppName).to_a.group_by(&:AppName)
+  slim :shortcuts
+end
+
+
+# API
+##############################################
 post "/lcg" do
   begin
     if params.fetch("ACG:Flags", "").include?("Test=1")

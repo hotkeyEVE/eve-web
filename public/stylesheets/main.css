@@ -73,3 +73,23 @@ a.button {
   background-position: 37px 50%;
 }
 
+.app-shortcuts {
+  margin: 5px 0;
+}
+
+.app-shortcuts.active {
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
+.app-shortcuts.active a {
+  font-weight: bold;
+}
+
+.app-shortcuts table {
+  display: none;
+}
+
+.shortcuts-help {
+  text-align: center;
+}
