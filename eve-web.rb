@@ -7,7 +7,7 @@
 Sequel.connect ENV["DATABASE_URL"]
 
 # load models after connection was established
-%w[serial_number kagi_response account].each { |model| require "./models/#{model}" }
+%w[serial_number kagi_response account shortcut].each { |model| require "./models/#{model}" }
 
 
 # APP
