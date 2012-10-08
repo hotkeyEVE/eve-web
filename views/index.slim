@@ -1,109 +1,66 @@
-doctype html
-html
-  head
-    meta charset="utf-8"
+p
+  strong
+    |
+      EVE helps you to learn shortcuts, in order to increase your productivity
+      with MAC OS X. Every time you execute an action using the mouse,
+      EVE will show you the matching shortcut.
 
-    title Hotkey EVE
+table.versions
+  tr
+    th
+    th Lite
+    th Pro
+  tr
+    td.title Menu items shortcuts (all apps)
+    td &#10004;
+    td &#10004;
+  tr
+    td.title GUI element shorcuts *
+    td
+    td &#10004;
+  tr
+    td.title Notfication Center &amp; Growl support
+    td &#10004;
+    td &#10004;
+  tr
+    td
+    td
+      a href="https://github.com/downloads/hotkeyEVE/eve/EVE-latest.app.zip" id="download-zip" class="button"
+        span Download
+    td
+      a href="https://github.com/downloads/hotkeyEVE/eve/EVE-latest.app.zip" id="download-buy" class="button"
+        span Buy
 
-    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chivo:900"
-    link rel="stylesheet" href="stylesheets/theme.css"
-    link rel="stylesheet" href="stylesheets/main.css"
+small
+  |
+    * Supported apps: Finder, Safari, Calendar, Mail and Chrome
 
-    /[if lt IE 9]
-      script src="//html5shiv.googlecode.com/svn/trunk/html5.js"
+h1 System Requirements
 
-  body
-    #container
-      .inner
-        header
-          h1 Hotkey EVE
+ul
+  li Mac OS X 10.6 or newer
+  li Intel 64 bit
 
-          table.clean
-            tr
-              td
-                a href="https://twitter.com/HotkeyEVE" class="user-mention" @hotkeyEVE
-              td.middle
-                a href="mailto:hotkey.eve@googlemail.com" hotkey.eve@googlemail.com
-              td.right
-                em Hotkey EVE 
-                |
-                  @ Google+
+h1 Version History
 
+h2 1.2
 
-        section id="main_content"
-          p
-            strong
-              |
-                EVE helps you to learn shortcuts, in order to increase your productivity
-                with MAC OS X. Every time you execute an action using the mouse,
-                EVE will show you the matching shortcut.
+ul
+  li Mountain Lion Notification Center support
+  li GUI Elements support for Calendar / iCal (de, en)
+  li Re-initialize EVE to look for new shortcuts
+  li Shortcut count for the currently active app
+  li Growl 2.0 support
+  li Re-write of the shortcut indexing
+  li A lot of small internal improvements!
 
-          table.versions
-            tr
-              th
-              th Lite
-              th Pro
-            tr
-              td.title Menu items shortcuts (all apps)
-              td &#10004;
-              td &#10004;
-            tr
-              td.title GUI element shorcuts *
-              td
-              td &#10004;
-            tr
-              td.title Notfication Center &amp; Growl support
-              td &#10004;
-              td &#10004;
-            tr
-              td
-              td
-                a href="https://github.com/downloads/hotkeyEVE/eve/EVE-latest.app.zip" id="download-zip" class="button"
-                  span Download
-              td
-                a href="https://github.com/downloads/hotkeyEVE/eve/EVE-latest.app.zip" id="download-buy" class="button"
-                  span Buy
+a.full-history href="#" Show full history
+.older-versions
+  h2 1.1
 
-          small
-            |
-              * Supported apps: Finder, Safari, Calendar, Mail and Chrome
-
-          h1 System Requirements
-
-          ul
-            li Mac OS X 10.6 or newer
-            li Intel 64 bit
-
-          h1 Version History
-
-          h2 1.2
-
-          ul
-            li Mountain Lion Notification Center support
-            li GUI Elements support for Calendar / iCal (de, en)
-            li Re-initialize EVE to look for new shortcuts
-            li Shortcut count for the currently active app
-            li Growl 2.0 support
-            li Re-write of the shortcut indexing
-            li A lot of small internal improvements!
-
-          a.full-history href="#" Show full history
-          .older-versions
-            h2 1.1
-
-            ul
-              li disable notifications for shortcuts (click on a message)
-              li disable all notifcations for single apps (click on a message)
-              li check for updates
-              li many many bugfixes and improvements
-
-        footer
-          | Eve is maintained by
-          a href="https://github.com/Togo" Tobias Sommer
-          br
-          | Tactile theme by
-          a href="http://twitter.com/jasonlong" Jason Long
-
-    script src="/javascripts/jquery.1.8.2.js"
-    script src="/javascripts/main.js"
+  ul
+    li disable notifications for shortcuts (click on a message)
+    li disable all notifcations for single apps (click on a message)
+    li check for updates
+    li many many bugfixes and improvements
 

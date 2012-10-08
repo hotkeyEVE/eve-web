@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+
+    title Hotkey EVE
+
+    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chivo:900"
+    link rel="stylesheet" href="stylesheets/theme.css"
+    link rel="stylesheet" href="stylesheets/main.css"
+
+    /[if lt IE 9]
+      script src="//html5shiv.googlecode.com/svn/trunk/html5.js"
+
+  body
+    #container
+      .inner
+        header
+          h1 Hotkey EVE
+
+          table.clean
+            tr
+              td
+                a href="https://twitter.com/HotkeyEVE" class="user-mention" @hotkeyEVE
+              td.middle
+                a href="mailto:hotkey.eve@googlemail.com" hotkey.eve@googlemail.com
+              td.right
+                em Hotkey EVE 
+                |
+                  @ Google+
+
+        section id="main_content"
+          == yield
+
+        footer
+          | Eve is maintained by
+          a href="https://github.com/Togo" Tobias Sommer
+          br
+          | Tactile theme by
+          a href="http://twitter.com/jasonlong" Jason Long
+
+    script src="/javascripts/jquery.1.8.2.js"
+    script src="/javascripts/jquery.scrollto.min.js"
+    script src="/javascripts/main.js"
+
