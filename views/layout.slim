@@ -3,7 +3,9 @@ html
   head
     meta charset="utf-8"
 
-    title Hotkey EVE
+    title
+      = @title
+      |  - Hotkey EVE
 
     link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chivo:900"
     link rel="stylesheet" href="stylesheets/theme.css"
@@ -16,7 +18,9 @@ html
     #container
       .inner
         header
-          h1 Hotkey EVE
+          h1
+            | Hotkey EVE
+            small= @title
 
           table.clean
             tr
@@ -28,6 +32,12 @@ html
                 em Hotkey EVE 
                 |
                   @ Google+
+
+          ul.menu
+            - { "Home"        => "/",
+                "Shortcut DB" => "/shortcuts" }.each do |name, url|
+              li class==(@title.eql?(name) ? "active" : "inactive")
+                a href==url class="button" = name
 
         section id="main_content"
           == yield
