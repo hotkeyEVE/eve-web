@@ -2624,3 +2624,4 @@ INSERT INTO "menu_bar_shortcuts" VALUES ('eve-guireader', '1.2.1', 'en', 'YES', 
 INSERT INTO "menu_bar_shortcuts" VALUES ('eve-guireader', '1.2.1', 'en', 'YES', 'Command Option T', 'show toolbar', 'axmenuitem', '', 'menu item', '', '', '', '(null)', 'view', 'axmenubaritem', '', 0);
 INSERT INTO "menu_bar_shortcuts" VALUES ('eve-guireader', '1.2.1', 'en', 'YES', 'Command M', 'minimize', 'axmenuitem', '', 'menu item', '', '', '', '(null)', 'window', 'axmenubaritem', '', 0);
 INSERT INTO "menu_bar_shortcuts" VALUES ('eve-guireader', '1.2.1', 'en', 'YES', 'Command Option M', 'minimize all', 'axmenuitem', '', 'menu item', '', '', '', '(null)', 'window', 'axmenubaritem', '', 0);
+
