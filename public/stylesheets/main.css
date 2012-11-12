@@ -80,6 +80,11 @@ header .menu .active .button {
   border-right: 1px solid #ebebeb;
 }
 
+.versions .button {
+  float: none;
+  margin: 0 auto;
+}
+
 small {
   font-size: small;
 }
@@ -98,7 +103,7 @@ small {
 }
 
 a.button {
-  width: 135px;
+  width: 145px;
 }
 
 #download-zip span {
@@ -130,3 +135,13 @@ a.button {
 .shortcuts-help {
   text-align: center;
 }
+
+footer .left {
+  width: 50%;
+  float: left;
+}
+footer .right {
+  width: 50%;
+  float: right;
+}
+
