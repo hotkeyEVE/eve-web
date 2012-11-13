@@ -143,5 +143,6 @@ footer .left {
 footer .right {
   width: 50%;
   float: right;
+  text-align: right;
 }
 

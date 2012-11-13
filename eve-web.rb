@@ -25,6 +25,11 @@ get "/shortcuts" do
   slim :shortcuts
 end
 
+get "/licence" do
+  @title = "Licence"
+  slim :licence
+end
+
 
 # API
 ##############################################
