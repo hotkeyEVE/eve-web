@@ -12,7 +12,7 @@ _gaq.push(['_trackPageview']);
 // register event when someone clicks a download link
 $(function() {
   $(".download").click(function() {
-    _trackEvent("EVE", "Download");
+    _gaq.push(['_trackEvent', 'EVE', 'Download']);
   });
 });
 
