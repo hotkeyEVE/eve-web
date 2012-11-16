@@ -1,21 +1,33 @@
 class KagiResponse
 
   class << self
-    def success(account)
-      response("GOOD", "", account.email, account.serial)
+    def success(accounts)
+      response("GOOD", "", accounts)
     end
 
     def failed(message)
       response("BAD", message)
     end
 
-    def response(status, message, email = "", serial = "")
+    def response(status, message, accounts = [])
+      licences = ""
+      accounts.each do |account|
+        licences << <<-TEXT
+
+          userName=#{account.email}, regNumber=#{account.serial}
+        TEXT
+      end
+
+      header(status, message) + licences
+    end
+
+    private
+
+    def header(status, message)
       <<-TEXT
         Content-type: text/text
 
         kagiRemotePostStatus=#{status}, message="#{message}"
-
-        userName=#{email}, regNumber=#{serial}
       TEXT
     end
   end

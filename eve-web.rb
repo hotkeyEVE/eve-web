@@ -41,12 +41,12 @@ end
 post "/lcg" do
   begin
     if params.fetch("ACG:Flags", "").include?("Test=1")
-      account = Account.example
+      accounts = [Account.example]
     else
-      account = Account.generate(params)
+      accounts = [Account.generate(params)]
     end
 
-    KagiResponse.success(account)
+    KagiResponse.success(accounts)
   rescue Sequel::InvalidValue
     KagiResponse.failed("Incomplete request. Did you submit an email?")
   end
