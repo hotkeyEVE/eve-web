@@ -10,13 +10,12 @@ class KagiResponse
     end
 
     def response(status, message, accounts = [])
-      licences = ""
-      accounts.each do |account|
-        licences << <<-TEXT
+      licences = accounts.map do |account|
+        <<-TEXT
 
           userName=#{account.email}, regNumber=#{account.serial}
         TEXT
-      end
+      end.join
 
       header(status, message) + licences
     end

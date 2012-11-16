@@ -13,10 +13,16 @@ class Account < Sequel::Model(:accounts)
       email = params["ACG:PurchaserEmail"]
       email = nil if email.empty?
 
-      account = (first(email: email) || new(email: email, serial: SerialNumber.generate.number))
+      accounts = where(email: email).to_a
+      return accounts unless accounts.empty?
 
-      account.save unless account.exists?
-      account
+      quantity = params["ACG:QuantityOrdered"].to_i
+      quantity = [1, quantity].max
+
+      quantity.times do
+        accounts << create(email: email, serial: SerialNumber.generate.number)
+      end
+      accounts
     end
 
     def example

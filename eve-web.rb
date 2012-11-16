@@ -43,7 +43,7 @@ post "/lcg" do
     if params.fetch("ACG:Flags", "").include?("Test=1")
       accounts = [Account.example]
     else
-      accounts = [Account.generate(params)]
+      accounts = Account.generate(params)
     end
 
     KagiResponse.success(accounts)
