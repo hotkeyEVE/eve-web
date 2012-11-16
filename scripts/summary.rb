@@ -17,6 +17,6 @@ LICENCE SUMMARY
 
 Number of Licences:              #{licences}
 Number of used Licences:         #{used_licences}
-Registered machines per Licence: #{(licenced_machines / used_licences).round(2)}
+Registered machines per Licence: #{(licenced_machines.to_f / used_licences).round(2)}
 TEXT
 
