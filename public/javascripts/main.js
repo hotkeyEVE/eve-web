@@ -1,5 +1,5 @@
 $(function() {
-  $(".full-history").click(function() {
+  $(".full-history .toggle").click(function() {
     $(this).hide();
     $(".older-versions").show();
   });

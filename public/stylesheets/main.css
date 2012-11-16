@@ -59,7 +59,7 @@ header .menu .active .button {
 }
 
 #main_content h1 {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .versions {
@@ -87,6 +87,10 @@ header .menu .active .button {
 
 small {
   font-size: small;
+}
+
+.full-history {
+  text-align: right;
 }
 
 .older-versions {
