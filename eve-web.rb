@@ -18,6 +18,11 @@ get "/" do
   slim :index
 end
 
+get "/screenshots" do
+  @title = "Screenshots"
+  slim :screenshots
+end
+
 get "/shortcuts" do
   @title     = "Shortcut DB"
   @shortcuts = Shortcut.where(:AppName => Shortcut::STANDARD_APPS).order(:AppName).to_a.group_by(&:AppName)

@@ -127,3 +127,18 @@ footer .right {
   text-align: right;
 }
 
+.screen {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  background: transparent url('/images/hr.png') 0 bottom no-repeat;
+}
+.screen.last {
+  background: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.screen img {
+  border: 1px solid #000;
+}
+
