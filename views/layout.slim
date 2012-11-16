@@ -21,8 +21,8 @@ html
         .navbar-inner
           .inner
             ul.nav
-              - { "Home"        => "/",
-                  "Shortcut DB" => "/shortcuts" }.each do |name, url|
+              /"Shortcut DB" => "/shortcuts" }
+              - { "Home"        => "/", }.each do |name, url|
                 li class==(@title.eql?(name) ? "active" : "inactive")
                   a href==url =name
 
