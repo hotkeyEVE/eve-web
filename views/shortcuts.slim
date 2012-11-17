@@ -10,9 +10,13 @@ p.shortcuts-help
       a href="#" = app
 
       table.shortcuts.clean
-        - shortcuts.sort_by { |s| s.ShortcutString }.each do |shortcut|
+        thead
           tr
-            td
-              em= shortcut.ShortcutString
-            td= shortcut.TitleAttribute
+            th colspan=2 = app
+        tbody
+          - shortcuts.sort_by { |s| s.ShortcutString }.each do |shortcut|
+            tr
+              td
+                em= shortcut.ShortcutString
+              td= shortcut.TitleAttribute
 
