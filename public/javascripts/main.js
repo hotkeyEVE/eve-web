@@ -4,15 +4,14 @@ $(function() {
     $(".older-versions").show();
   });
 
-  $(".app-shortcuts a").click(function(event) {
+  $(".shortcut a").click(function(event) {
     event.preventDefault();
 
-    $(".app-shortcuts table").hide();
-    $(".app-shortcuts").removeClass("active");
-
-    $(this).siblings("table").show();
-    $(this).parent().addClass("active");
-    $(this).parent().ScrollTo();
+    console.debug($(this).siblings("table"));
+    $(this).colorbox({
+      inline: true,
+      href:   $(this).siblings("table")
+    });
   });
 });
 

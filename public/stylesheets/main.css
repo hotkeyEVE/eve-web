@@ -83,6 +83,10 @@ small {
   text-align: left;
 }
 
+.shortcuts td {
+  padding: 0 6px;
+}
+
 a.button {
   width: 145px;
 }
@@ -96,25 +100,15 @@ a.button {
   background-position: 37px 50%;
 }
 
-.app-shortcuts {
+.shortcut {
   margin: 5px 0;
-}
-
-.app-shortcuts.active {
-  padding-left: 20px;
-  margin: 15px 0;
-}
-
-.app-shortcuts.active a {
-  font-weight: bold;
-}
-
-.app-shortcuts table {
-  display: none;
-}
-
-.shortcuts-help {
+  float: left;
+  width: 33%;
   text-align: center;
+}
+
+.shortcut table {
+  display: none;
 }
 
 footer .left {

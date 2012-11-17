@@ -1,17 +1,18 @@
 p.shortcuts-help
   small
     | Click on an 
-    strong App Name 
+    strong App 
     | to view its shortcuts
 
-- @shortcuts.each do |app, shortcuts|
-  .app-shortcuts data-app==app
-    a href="#" = app
+.clearfix
+  - @shortcuts.each do |app, shortcuts|
+    .shortcut data-app==app
+      a href="#" = app
 
-    table.clean
-      - shortcuts.sort_by { |s| s.ShortcutString }.each do |shortcut|
-        tr
-          td
-            em= shortcut.ShortcutString
-          td= shortcut.TitleAttribute
+      table.shortcuts.clean
+        - shortcuts.sort_by { |s| s.ShortcutString }.each do |shortcut|
+          tr
+            td
+              em= shortcut.ShortcutString
+            td= shortcut.TitleAttribute
 
