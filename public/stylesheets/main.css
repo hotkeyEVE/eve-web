@@ -38,6 +38,11 @@ header .clean .right {
   padding-top: 20px;
   background: transparent url('/images/hr.png') 0 0 no-repeat;
 }
+#main_content h1.first {
+  margin-top: 0;
+  padding-top: 0;
+  background: none;
+}
 
 .versions {
   border: none;
@@ -111,6 +116,9 @@ a.button {
   display: none;
 }
 
+footer {
+  padding-bottom: 5px;
+}
 footer .left {
   width: 50%;
   float: left;

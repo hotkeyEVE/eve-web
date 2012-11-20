@@ -14,7 +14,7 @@ Sequel.connect ENV["DATABASE_URL"]
 ##############################################
 
 get "/" do
-  @title = "Home"
+  @title = "Get Started"
   slim :index
 end
 
@@ -24,7 +24,7 @@ get "/screenshots" do
 end
 
 get "/shortcuts" do
-  @title     = "Shortcut DB"
+  @title     = "Online DB"
   @shortcuts = Shortcut.where(:AppName => Shortcut::STANDARD_APPS).order(:AppName).to_a.group_by(&:AppName)
 
   slim :shortcuts
