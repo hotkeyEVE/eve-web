@@ -1,6 +1,7 @@
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-35613950-1']);
 _gaq.push(['_setDomainName', 'hotkey-eve.com']);
+_gaq.push(['_setSiteSpeedSampleRate', 100]);
 _gaq.push(['_trackPageview']);
 
 (function() {
