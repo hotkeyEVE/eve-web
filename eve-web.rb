@@ -27,7 +27,9 @@ end
 
 get "/:site" do |site|
   @title = ActiveSupport::Inflector.titleize(site)
-  slim site.to_sym
+
+  layout = (params["plain"] == "true" ? :plain : :layout)
+  slim site.to_sym, layout: layout
 end
 
 
