@@ -10,6 +10,8 @@ gem 'slim'
 gem 'pg'
 gem 'sequel'
 
+gem "activesupport"
+
 group :development do
   gem 'heroku'
 end
