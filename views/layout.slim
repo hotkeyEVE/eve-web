@@ -24,9 +24,10 @@ html
         .navbar-inner
           .inner
             ul.nav
-              - { "Get Started"        => "/",
-                  "Screenshots" => "/screenshots",
-                  "Online DB" => "/shortcuts" }.each do |name, url|
+              - { "Get Started"   => "/",
+                  "Screenshots"   => "/screenshots",
+                  "Release Notes" => "/release_notes",
+                  "Online DB"     => "/shortcuts" }.each do |name, url|
                 li class==(@title.eql?(name) ? "active" : "inactive")
                   a href==url =name
               li

@@ -26,7 +26,7 @@ get "/shortcuts" do
 end
 
 get "/:site" do |site|
-  @title = ActiveSupport::Inflector.camelize(site)
+  @title = ActiveSupport::Inflector.titleize(site)
   slim site.to_sym
 end
 
