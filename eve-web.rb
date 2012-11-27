@@ -1,4 +1,4 @@
-%w[sinatra sequel slim json].each { |lib|  require lib }
+%w[sinatra sequel slim json active_support/inflector].each { |lib|  require lib }
 
 
 # CONFIG
@@ -18,11 +18,6 @@ get "/" do
   slim :index
 end
 
-get "/screenshots" do
-  @title = "Screenshots"
-  slim :screenshots
-end
-
 get "/shortcuts" do
   @title     = "Online DB"
   @shortcuts = Shortcut.where(:AppName => Shortcut::STANDARD_APPS).order(:AppName).to_a.group_by(&:AppName)
@@ -30,9 +25,9 @@ get "/shortcuts" do
   slim :shortcuts
 end
 
-get "/licence" do
-  @title = "Licence"
-  slim :licence
+get "/:site" do |site|
+  @title = ActiveSupport::Inflector.camelize(site)
+  slim site.to_sym
 end
 
 
