@@ -30,6 +30,8 @@ html
                   "Online DB"     => "/shortcuts" }.each do |name, url|
                 li class==(@title.eql?(name) ? "active" : "inactive")
                   a href==url =name
+              li class==(@title.eql?("Apps") ? "active" : "inactive")
+                a href="/apps" EVE Apps
               li
                 a.download href="https://s3.amazonaws.com/hotkeyeve/Downloads/EVE-latest.zip" target="_blank" Download
 
@@ -37,7 +39,7 @@ html
         header
 
           h1
-            | Hotkey EVE
+            | EVE
             small= @title
 
           table.clean

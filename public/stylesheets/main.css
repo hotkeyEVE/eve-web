@@ -28,6 +28,10 @@ header .clean .right {
   text-align: right;
 }
 
+.navbar .inner {
+  width: 685px;
+}
+
 .navbar .nav > li {
   list-style: none;
   padding: 0;

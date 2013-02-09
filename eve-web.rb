@@ -32,6 +32,11 @@ get "/:site" do |site|
   slim site.to_sym, layout: layout
 end
 
+get "/apps" do
+  @title = "Apps"
+  slim :apps
+end
+
 
 # API
 ##############################################
