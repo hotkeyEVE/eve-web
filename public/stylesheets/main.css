@@ -44,27 +44,14 @@ header .clean .right {
   background: none;
 }
 
-.versions {
-  border: none;
+.features li {
+  list-style: none;
+  padding: 4px 0 4px 10px;
 }
 
-.versions th {
-  font-size: 24px;
-}
-
-.versions td {
-  border: none;
-  padding: 8px 0;
-}
-
-.versions .title {
-  text-align: left;
-  border-right: 1px solid #ebebeb;
-}
-
-.versions .button {
-  float: none;
-  margin: 0 auto;
+.features li:before {
+  content: "✔";
+  margin-right: 10px;
 }
 
 small {
@@ -96,13 +83,14 @@ a.button {
   width: 145px;
 }
 
-#download-zip span {
-  padding-left: 35px;
+a.button.centered {
+  display: block;
+  float: none;
+  margin: 0 auto;
 }
 
-#download-buy span {
-  padding-left: 25px;
-  background-position: 37px 50%;
+#download-zip span {
+  padding-left: 52px;
 }
 
 .shortcut {
